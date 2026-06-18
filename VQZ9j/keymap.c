@@ -15,7 +15,7 @@ enum custom_keycodes {
 static uint16_t df_held[24] = {0};
 
 // Handles a DUAL_FUNC numpad key: tap=letter, hold=symbol, shift+hold=digit
-static void handle_numpad_df(keyrecord_t *record, uint8_t idx,
+static void handle_shifted_df(keyrecord_t *record, uint8_t idx,
                              uint16_t tap_kc, uint16_t hold_kc, uint16_t digit_kc) {
   if (record->tap.count > 0) {
     // Tap path — unchanged behavior
@@ -180,13 +180,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
 
     
-    case DUAL_FUNC_0:  handle_numpad_df(record, 0,  KC_L, NRW_LABK, KC_7); return false;
-    case DUAL_FUNC_1:  handle_numpad_df(record, 1,  KC_G, NRW_RABK, KC_8); return false;
-    case DUAL_FUNC_2:  handle_numpad_df(record, 2,  KC_W, NRW_SLSH, KC_9); return false;
-    case DUAL_FUNC_3:  handle_numpad_df(record, 3,  KC_N, NRW_MINS, KC_0); return false;
-    case DUAL_FUNC_4:  handle_numpad_df(record, 4,  KC_R, NRW_LPRN, KC_4); return false;
-    case DUAL_FUNC_5:  handle_numpad_df(record, 5,  KC_T, NRW_RPRN, KC_5); return false;
-    case DUAL_FUNC_6:  handle_numpad_df(record, 6,  KC_S, NRW_EQL,  KC_6); return false; 
+    case DUAL_FUNC_0:  handle_shifted_df(record, 0,  KC_L, NRW_LABK, KC_7); return false;
+    case DUAL_FUNC_1:  handle_shifted_df(record, 1,  KC_G, NRW_RABK, KC_8); return false;
+    case DUAL_FUNC_2:  handle_shifted_df(record, 2,  KC_W, NRW_SLSH, KC_9); return false;
+    case DUAL_FUNC_3:  handle_shifted_df(record, 3,  KC_N, NRW_MINS, KC_0); return false;
+    case DUAL_FUNC_4:  handle_shifted_df(record, 4,  KC_R, NRW_LPRN, KC_4); return false;
+    case DUAL_FUNC_5:  handle_shifted_df(record, 5,  KC_T, NRW_RPRN, KC_5); return false;
+    case DUAL_FUNC_6:  handle_shifted_df(record, 6,  KC_S, NRW_EQL,  KC_6); return false; 
     case DUAL_FUNC_7:
       if (record->tap.count > 0) {
         if (record->event.pressed) {
@@ -203,9 +203,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }  
       return false;
     
-case DUAL_FUNC_8:  handle_numpad_df(record, 8,  KC_X, NRW_PERC, KC_1); return false;
-case DUAL_FUNC_9:  handle_numpad_df(record, 9,  KC_M, NRW_UNDS, KC_2); return false;
-case DUAL_FUNC_10: handle_numpad_df(record, 10, KC_C, NRW_HASH, KC_3); return false;
+case DUAL_FUNC_8:  handle_shifted_df(record, 8,  KC_X, NRW_PERC, KC_1); return false;
+case DUAL_FUNC_9:  handle_shifted_df(record, 9,  KC_M, NRW_UNDS, KC_2); return false;
+case DUAL_FUNC_10: handle_shifted_df(record, 10, KC_C, NRW_HASH, KC_3); return false;
 
     case DUAL_FUNC_11:
       if (record->tap.count > 0) {
@@ -222,36 +222,8 @@ case DUAL_FUNC_10: handle_numpad_df(record, 10, KC_C, NRW_HASH, KC_3); return fa
         }  
       }  
       return false;
-    case DUAL_FUNC_12:
-      if (record->tap.count > 0) {
-        if (record->event.pressed) {
-          register_code16(KC_F);
-        } else {
-          unregister_code16(KC_F);
-        }
-      } else {
-        if (record->event.pressed) {
-          register_code16(NRW_EXLM);
-        } else {
-          unregister_code16(NRW_EXLM);
-        }  
-      }  
-      return false;
-    case DUAL_FUNC_13:
-      if (record->tap.count > 0) {
-        if (record->event.pressed) {
-          register_code16(KC_O);
-        } else {
-          unregister_code16(KC_O);
-        }
-      } else {
-        if (record->event.pressed) {
-          register_code16(NRW_LBRC);
-        } else {
-          unregister_code16(NRW_LBRC);
-        }  
-      }  
-      return false;
+    case DUAL_FUNC_12: handle_shifted_df(record, 12, KC_F, NRW_EXLM, KC_F10); return false;
+    case DUAL_FUNC_13: handle_shifted_df(record, 13, KC_O, NRW_LBRC, KC_F11); return false; 
     case DUAL_FUNC_14:
       if (record->tap.count > 0) {
         if (record->event.pressed) {
@@ -282,81 +254,11 @@ case DUAL_FUNC_10: handle_numpad_df(record, 10, KC_C, NRW_HASH, KC_3); return fa
         }  
       }  
       return false;
-    case DUAL_FUNC_16:
-      if (record->tap.count > 0) {
-        if (record->event.pressed) {
-          register_code16(KC_D);
-        } else {
-          unregister_code16(KC_D);
-        }
-      } else {
-        if (record->event.pressed) {
-          register_code16(NRW_DQUO);
-        } else {
-          unregister_code16(NRW_DQUO);
-        }  
-      }  
-      return false;
-    case DUAL_FUNC_17:
-      if (record->tap.count > 0) {
-        if (record->event.pressed) {
-          register_code16(KC_A);
-        } else {
-          unregister_code16(KC_A);
-        }
-      } else {
-        if (record->event.pressed) {
-          register_code16(NRW_LCBR);
-        } else {
-          unregister_code16(NRW_LCBR);
-        }  
-      }  
-      return false;
-    case DUAL_FUNC_18:
-      if (record->tap.count > 0) {
-        if (record->event.pressed) {
-          register_code16(KC_E);
-        } else {
-          unregister_code16(KC_E);
-        }
-      } else {
-        if (record->event.pressed) {
-          register_code16(NRW_RCBR);
-        } else {
-          unregister_code16(NRW_RCBR);
-        }  
-      }  
-      return false;
-    case DUAL_FUNC_19:
-      if (record->tap.count > 0) {
-        if (record->event.pressed) {
-          register_code16(KC_I);
-        } else {
-          unregister_code16(KC_I);
-        }
-      } else {
-        if (record->event.pressed) {
-          register_code16(NRW_PLUS);
-        } else {
-          unregister_code16(NRW_PLUS);
-        }  
-      }  
-      return false;
-    case DUAL_FUNC_20:
-      if (record->tap.count > 0) {
-        if (record->event.pressed) {
-          register_code16(KC_K);
-        } else {
-          unregister_code16(KC_K);
-        }
-      } else {
-        if (record->event.pressed) {
-          register_code16(NRW_DLR);
-        } else {
-          unregister_code16(NRW_DLR);
-        }  
-      }  
-      return false;
+    case DUAL_FUNC_16: handle_shifted_df(record, 16, KC_D, NRW_DQUO, KC_F2);  return false;
+    case DUAL_FUNC_17: handle_shifted_df(record, 17, KC_A, NRW_LCBR, KC_F7);  return false;
+    case DUAL_FUNC_18: handle_shifted_df(record, 18, KC_E, NRW_RCBR, KC_F9);  return false;
+    case DUAL_FUNC_19: handle_shifted_df(record, 19, KC_I, NRW_PLUS, KC_F12); return false;
+    case DUAL_FUNC_20: handle_shifted_df(record, 20, KC_K, NRW_DLR,  KC_F4);  return false; 
     case DUAL_FUNC_21:
       if (record->tap.count > 0) {
         if (record->event.pressed) {
