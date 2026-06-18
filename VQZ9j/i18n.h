@@ -1,0 +1,4 @@
+#define NRW_QUOT KC_NUHS
+#define NRW_ARNG KC_LBRC
+#define NRW_OSTR KC_SCLN
+#define NRW_AE KC_QUOT
