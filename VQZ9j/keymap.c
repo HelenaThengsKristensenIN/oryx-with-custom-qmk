@@ -11,6 +11,44 @@ enum custom_keycodes {
 };
 
 
+// Tracks what was registered per dual-func, so we can release it cleanly
+static uint16_t df_held[24] = {0};
+
+// Handles a DUAL_FUNC numpad key: tap=letter, hold=symbol, shift+hold=digit
+static void handle_numpad_df(keyrecord_t *record, uint8_t idx,
+                             uint16_t tap_kc, uint16_t hold_kc, uint16_t digit_kc) {
+  if (record->tap.count > 0) {
+    // Tap path — unchanged behavior
+    if (record->event.pressed) {
+      register_code16(tap_kc);
+      df_held[idx] = tap_kc;
+    } else {
+      unregister_code16(df_held[idx]);
+      df_held[idx] = 0;
+    }
+  } else {
+    // Hold path — check if Shift is active
+    if (record->event.pressed) {
+      uint8_t shift_mods = get_mods() & MOD_MASK_SHIFT;
+      if (shift_mods) {
+        // Temporarily drop Shift, send digit, restore Shift
+        unregister_mods(shift_mods);
+        send_keyboard_report();
+        register_code16(digit_kc);
+        df_held[idx] = digit_kc;
+        register_mods(shift_mods);
+      } else {
+        register_code16(hold_kc);
+        df_held[idx] = hold_kc;
+      }
+    } else {
+      if (df_held[idx]) {
+        unregister_code16(df_held[idx]);
+        df_held[idx] = 0;
+      }
+    }
+  }
+}
 
 #define DUAL_FUNC_0 LT(12, KC_F10)
 #define DUAL_FUNC_1 LT(11, KC_F)
@@ -141,111 +179,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     break;
 
-    case DUAL_FUNC_0:
-      if (record->tap.count > 0) {
-        if (record->event.pressed) {
-          register_code16(KC_L);
-        } else {
-          unregister_code16(KC_L);
-        }
-      } else {
-        if (record->event.pressed) {
-          register_code16(NRW_LABK);
-        } else {
-          unregister_code16(NRW_LABK);
-        }  
-      }  
-      return false;
-    case DUAL_FUNC_1:
-      if (record->tap.count > 0) {
-        if (record->event.pressed) {
-          register_code16(KC_G);
-        } else {
-          unregister_code16(KC_G);
-        }
-      } else {
-        if (record->event.pressed) {
-          register_code16(NRW_RABK);
-        } else {
-          unregister_code16(NRW_RABK);
-        }  
-      }  
-      return false;
-    case DUAL_FUNC_2:
-      if (record->tap.count > 0) {
-        if (record->event.pressed) {
-          register_code16(KC_W);
-        } else {
-          unregister_code16(KC_W);
-        }
-      } else {
-        if (record->event.pressed) {
-          register_code16(NRW_SLSH);
-        } else {
-          unregister_code16(NRW_SLSH);
-        }  
-      }  
-      return false;
-    case DUAL_FUNC_3:
-      if (record->tap.count > 0) {
-        if (record->event.pressed) {
-          register_code16(KC_N);
-        } else {
-          unregister_code16(KC_N);
-        }
-      } else {
-        if (record->event.pressed) {
-          register_code16(NRW_MINS);
-        } else {
-          unregister_code16(NRW_MINS);
-        }  
-      }  
-      return false;
-    case DUAL_FUNC_4:
-      if (record->tap.count > 0) {
-        if (record->event.pressed) {
-          register_code16(KC_R);
-        } else {
-          unregister_code16(KC_R);
-        }
-      } else {
-        if (record->event.pressed) {
-          register_code16(NRW_LPRN);
-        } else {
-          unregister_code16(NRW_LPRN);
-        }  
-      }  
-      return false;
-    case DUAL_FUNC_5:
-      if (record->tap.count > 0) {
-        if (record->event.pressed) {
-          register_code16(KC_T);
-        } else {
-          unregister_code16(KC_T);
-        }
-      } else {
-        if (record->event.pressed) {
-          register_code16(NRW_RPRN);
-        } else {
-          unregister_code16(NRW_RPRN);
-        }  
-      }  
-      return false;
-    case DUAL_FUNC_6:
-      if (record->tap.count > 0) {
-        if (record->event.pressed) {
-          register_code16(KC_S);
-        } else {
-          unregister_code16(KC_S);
-        }
-      } else {
-        if (record->event.pressed) {
-          register_code16(NRW_EQL);
-        } else {
-          unregister_code16(NRW_EQL);
-        }  
-      }  
-      return false;
+    
+    case DUAL_FUNC_0:  handle_numpad_df(record, 0,  KC_L, NRW_LABK, KC_7); return false;
+    case DUAL_FUNC_1:  handle_numpad_df(record, 1,  KC_G, NRW_RABK, KC_8); return false;
+    case DUAL_FUNC_2:  handle_numpad_df(record, 2,  KC_W, NRW_SLSH, KC_9); return false;
+    case DUAL_FUNC_3:  handle_numpad_df(record, 3,  KC_N, NRW_MINS, KC_0); return false;
+    case DUAL_FUNC_4:  handle_numpad_df(record, 4,  KC_R, NRW_LPRN, KC_4); return false;
+    case DUAL_FUNC_5:  handle_numpad_df(record, 5,  KC_T, NRW_RPRN, KC_5); return false;
+    case DUAL_FUNC_6:  handle_numpad_df(record, 6,  KC_S, NRW_EQL,  KC_6); return false; 
     case DUAL_FUNC_7:
       if (record->tap.count > 0) {
         if (record->event.pressed) {
@@ -261,51 +202,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }  
       }  
       return false;
-    case DUAL_FUNC_8:
-      if (record->tap.count > 0) {
-        if (record->event.pressed) {
-          register_code16(KC_X);
-        } else {
-          unregister_code16(KC_X);
-        }
-      } else {
-        if (record->event.pressed) {
-          register_code16(NRW_PERC);
-        } else {
-          unregister_code16(NRW_PERC);
-        }  
-      }  
-      return false;
-    case DUAL_FUNC_9:
-      if (record->tap.count > 0) {
-        if (record->event.pressed) {
-          register_code16(KC_M);
-        } else {
-          unregister_code16(KC_M);
-        }
-      } else {
-        if (record->event.pressed) {
-          register_code16(NRW_UNDS);
-        } else {
-          unregister_code16(NRW_UNDS);
-        }  
-      }  
-      return false;
-    case DUAL_FUNC_10:
-      if (record->tap.count > 0) {
-        if (record->event.pressed) {
-          register_code16(KC_C);
-        } else {
-          unregister_code16(KC_C);
-        }
-      } else {
-        if (record->event.pressed) {
-          register_code16(NRW_HASH);
-        } else {
-          unregister_code16(NRW_HASH);
-        }  
-      }  
-      return false;
+    
+case DUAL_FUNC_8:  handle_numpad_df(record, 8,  KC_X, NRW_PERC, KC_1); return false;
+case DUAL_FUNC_9:  handle_numpad_df(record, 9,  KC_M, NRW_UNDS, KC_2); return false;
+case DUAL_FUNC_10: handle_numpad_df(record, 10, KC_C, NRW_HASH, KC_3); return false;
+
     case DUAL_FUNC_11:
       if (record->tap.count > 0) {
         if (record->event.pressed) {
