@@ -50,30 +50,30 @@ static void handle_shifted_df(keyrecord_t *record, uint8_t idx,
   }
 }
 
-#define DUAL_FUNC_0 LT(12, KC_F10)
-#define DUAL_FUNC_1 LT(11, KC_F)
-#define DUAL_FUNC_2 LT(12, KC_O)
-#define DUAL_FUNC_3 LT(7, KC_C)
-#define DUAL_FUNC_4 LT(1, KC_F7)
-#define DUAL_FUNC_5 LT(14, KC_5)
-#define DUAL_FUNC_6 LT(15, KC_6)
-#define DUAL_FUNC_7 LT(8, KC_F19)
-#define DUAL_FUNC_8 LT(3, KC_R)
-#define DUAL_FUNC_9 LT(12, KC_B)
-#define DUAL_FUNC_10 LT(12, KC_F24)
-#define DUAL_FUNC_11 LT(8, KC_F15)
-#define DUAL_FUNC_12 LT(9, KC_F1)
-#define DUAL_FUNC_13 LT(7, KC_F12)
-#define DUAL_FUNC_14 LT(1, KC_9)
-#define DUAL_FUNC_15 LT(10, KC_F13)
-#define DUAL_FUNC_16 LT(1, KC_F21)
-#define DUAL_FUNC_17 LT(15, KC_C)
-#define DUAL_FUNC_18 LT(7, KC_F13)
-#define DUAL_FUNC_19 LT(4, KC_Z)
-#define DUAL_FUNC_20 LT(4, KC_4)
-#define DUAL_FUNC_21 LT(4, KC_F8)
-#define DUAL_FUNC_22 LT(9, KC_F8)
-#define DUAL_FUNC_23 LT(12, KC_F14)
+#define DUAL_FUNC_0 LT(4, KC_4)
+#define DUAL_FUNC_1 LT(11, KC_0)
+#define DUAL_FUNC_2 LT(3, KC_F19)
+#define DUAL_FUNC_3 LT(11, KC_K)
+#define DUAL_FUNC_4 LT(2, KC_U)
+#define DUAL_FUNC_5 LT(12, KC_5)
+#define DUAL_FUNC_6 LT(10, KC_F17)
+#define DUAL_FUNC_7 LT(8, KC_6)
+#define DUAL_FUNC_8 LT(1, KC_F20)
+#define DUAL_FUNC_9 LT(10, KC_6)
+#define DUAL_FUNC_10 LT(5, KC_F9)
+#define DUAL_FUNC_11 LT(7, KC_X)
+#define DUAL_FUNC_12 LT(1, KC_F16)
+#define DUAL_FUNC_13 LT(7, KC_F11)
+#define DUAL_FUNC_14 LT(4, KC_F1)
+#define DUAL_FUNC_15 LT(2, KC_P)
+#define DUAL_FUNC_16 LT(15, KC_F24)
+#define DUAL_FUNC_17 LT(1, KC_S)
+#define DUAL_FUNC_18 LT(8, KC_F17)
+#define DUAL_FUNC_19 LT(3, KC_F15)
+#define DUAL_FUNC_20 LT(7, KC_R)
+#define DUAL_FUNC_21 LT(3, KC_T)
+#define DUAL_FUNC_22 LT(7, KC_6)
+#define DUAL_FUNC_23 LT(1, KC_K)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -84,9 +84,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                     MT(MOD_LSFT, KC_SPACE),MT(MOD_LCTL, KC_ENTER),                                MT(MOD_LCTL, KC_H),KC_BSPC
   ),
   [1] = LAYOUT_voyager(
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_7,           KC_8,           KC_9,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_0,           KC_4,           KC_5,           KC_6,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_1,           KC_2,           KC_3,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_7,           KC_8,           KC_9,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_F10,         KC_F11,         KC_TRANSPARENT, KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_0,           KC_4,           KC_5,           KC_6,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_F2,          KC_F7,          KC_F9,          KC_F12,         KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_1,           KC_2,           KC_3,           KC_TRANSPARENT,                                 KC_F4,          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_MEDIA_PREV_TRACK,KC_MEDIA_PLAY_PAUSE,KC_MEDIA_NEXT_TRACK,KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
                                                     KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT
   ),
@@ -111,7 +111,7 @@ void keyboard_post_init_user(void) {
 const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
     [0] = { {0,0,0}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {0,0,0}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {32,255,255}, {0,0,0}, {0,0,0}, {0,249,255}, {32,255,255}, {32,255,255}, {80,218,204}, {80,218,204}, {80,218,204}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {0,0,0}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {0,0,0}, {80,218,204}, {32,255,255}, {32,255,255}, {201,218,204}, {0,0,0}, {0,0,0}, {139,205,228}, {80,218,204} },
 
-    [1] = { {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {201,218,204}, {201,218,204}, {201,218,204}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
+    [1] = { {0,0,0}, {0,0,0}, {165,255,225}, {165,255,225}, {165,255,225}, {0,0,0}, {0,0,0}, {165,255,225}, {165,255,225}, {165,255,225}, {165,255,225}, {0,0,0}, {0,0,0}, {0,0,0}, {165,255,225}, {165,255,225}, {165,255,225}, {0,0,0}, {0,0,0}, {0,0,0}, {201,218,204}, {201,218,204}, {201,218,204}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {165,255,225}, {165,255,225}, {0,0,0}, {0,0,0}, {0,0,0}, {165,255,225}, {165,255,225}, {165,255,225}, {165,255,225}, {0,0,0}, {165,255,225}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
 
 };
 
@@ -216,9 +216,9 @@ case DUAL_FUNC_10: handle_shifted_df(record, 10, KC_C, NRW_HASH, KC_3); return f
         }
       } else {
         if (record->event.pressed) {
-          register_code16(KC_F7);
+          register_code16(KC_F5);
         } else {
-          unregister_code16(KC_F7);
+          unregister_code16(KC_F5);
         }  
       }  
       return false;
