@@ -312,37 +312,3 @@ case DUAL_FUNC_10: handle_shifted_df(record, 10, KC_C, NRW_HASH, KC_3); return f
   }
   return true;
 }
-    const key_override_t override_to_7 =
-        ko_make_basic(MOD_MASK_SHIFT, NRW_LABK, KC_7); 
-    const key_override_t override_to_8 =
-        ko_make_basic(MOD_MASK_SHIFT, NRW_RABK, KC_8); 
-    const key_override_t override_to_9 =
-        ko_make_basic(MOD_MASK_SHIFT, NRW_SLSH, KC_9); 
-    const key_override_t override_to_4 =
-        ko_make_basic(MOD_MASK_SHIFT, NRW_LPRN, KC_4); 
-    const key_override_t override_to_5 =
-        ko_make_basic(MOD_MASK_SHIFT, NRW_RPRN, KC_5); 
-    const key_override_t override_to_6 =
-        ko_make_basic(MOD_MASK_SHIFT, NRW_EQL, KC_6);
-    const key_override_t override_to_1 =
-        ko_make_basic(MOD_MASK_SHIFT, NRW_PERC, KC_1);
-    const key_override_t override_to_2 =
-        ko_make_basic(MOD_MASK_SHIFT, NRW_UNDS, KC_2);
-    const key_override_t override_to_3 =
-        ko_make_basic(MOD_MASK_SHIFT, NRW_HASH, KC_3);
-    const key_override_t override_to_0 =
-        ko_make_basic(MOD_MASK_SHIFT, NRW_MINS, KC_0);    
-
-    const key_override_t *key_overrides[] = {
-        &override_to_7,
-        &override_to_8,
-        &override_to_9,
-        &override_to_4,
-        &override_to_5,
-        &override_to_6,
-        &override_to_1,
-        &override_to_2,
-        &override_to_3,
-        &override_to_0,
-        NULL  // Null-terminated list
-    };
