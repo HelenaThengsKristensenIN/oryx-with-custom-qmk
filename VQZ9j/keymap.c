@@ -511,16 +511,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 
-
-const custom_shift_key_t custom_shift_keys[] = {
-  {NRW_LABK , KC_7}, 
-  {NRW_RABK , KC_8},  
-  {NRW_SLSH , KC_9},  
-  {NRW_MINS , KC_0},  
-  {NRW_LPRN , KC_4},  
-  {NRW_RPRN , KC_5},  
-  {NRW_EQL , KC_6},  
-  {NRW_PERC , KC_1},  
-  {NRW_UNDS , KC_2},  
-  {NRW_HASH , KC_3},   
-};
+ ko_make_basic(MOD_MASK_SHIFT, NRW_LABK, KC_7)
+ ko_make_basic(MOD_MASK_SHIFT, NRW_RABK, KC_8)
+ ko_make_basic(MOD_MASK_SHIFT, NRW_SLSH, KC_9)
+ ko_make_basic(MOD_MASK_SHIFT, NRW_MINS, KC_0)
+ ko_make_basic(MOD_MASK_SHIFT, NRW_LPRN, KC_4)
+ ko_make_basic(MOD_MASK_SHIFT, NRW_RPRN, KC_5)
+ ko_make_basic(MOD_MASK_SHIFT, NRW_EQL, KC_6)
+ ko_make_basic(MOD_MASK_SHIFT, NRW_PERC, KC_1)
+ ko_make_basic(MOD_MASK_SHIFT, NRW_UNDS, KC_2)
+ ko_make_basic(MOD_MASK_SHIFT, NRW_HASH, KC_3)
