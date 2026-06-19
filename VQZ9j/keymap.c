@@ -162,7 +162,7 @@ bool rgb_matrix_indicators_user(void) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-  case QK_MODS ... QK_MODS_MAX:
+    case QK_MODS ... QK_MODS_MAX:
     // Mouse and consumer keys (volume, media) with modifiers work inconsistently across operating systems,
     // this makes sure that modifiers are always applied to the key that was pressed.
     if (IS_MOUSE_KEYCODE(QK_MODS_GET_BASIC_KEYCODE(keycode)) || IS_CONSUMER_KEYCODE(QK_MODS_GET_BASIC_KEYCODE(keycode))) {
@@ -225,14 +225,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }  
       }  
       return false;
-    case DUAL_FUNC_12:  handle_shifted_df(record, 8,  KC_O, NRW_LBRC, KC_F10); return false;
-    case DUAL_FUNC_13:  handle_shifted_df(record, 9,  KC_U, NRW_RBRC, KC_F11); return false;
-    case DUAL_FUNC_14: handle_shifted_df(record, 16, KC_Y, NRW_AMPR, KC_F5);  return false;
-    case DUAL_FUNC_15: handle_shifted_df(record, 16, KC_D, NRW_DQUO, KC_F2);  return false;
-    case DUAL_FUNC_16: handle_shifted_df(record, 17, KC_A, NRW_LCBR, KC_F7);  return false;
-    case DUAL_FUNC_17: handle_shifted_df(record, 18, KC_E, NRW_RCBR, KC_F9);  return false;
-    case DUAL_FUNC_18: handle_shifted_df(record, 19, KC_I, NRW_PLUS, KC_F12); return false;
-    case DUAL_FUNC_19: handle_shifted_df(record, 20, KC_K, NRW_DLR,  KC_F4);  return false; 
+    case DUAL_FUNC_12: handle_shifted_df(record, 12,  KC_O, NRW_LBRC, KC_F10); return false;
+    case DUAL_FUNC_13: handle_shifted_df(record, 13,  KC_U, NRW_RBRC, KC_F11); return false;
+    case DUAL_FUNC_14: handle_shifted_df(record, 14, KC_Y, NRW_AMPR, KC_F5);  return false;
+    case DUAL_FUNC_15: handle_shifted_df(record, 15, KC_D, NRW_DQUO, KC_F2);  return false;
+    case DUAL_FUNC_16: handle_shifted_df(record, 16, KC_A, NRW_LCBR, KC_F7);  return false;
+    case DUAL_FUNC_17: handle_shifted_df(record, 17, KC_E, NRW_RCBR, KC_F9);  return false;
+    case DUAL_FUNC_18: handle_shifted_df(record, 18, KC_I, NRW_PLUS, KC_F12); return false;
+    case DUAL_FUNC_19: handle_shifted_df(record, 19, KC_K, NRW_DLR,  KC_F4);  return false; 
     case DUAL_FUNC_20:
       if (record->tap.count > 0) {
         if (record->event.pressed) {
