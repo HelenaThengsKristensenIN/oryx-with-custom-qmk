@@ -209,10 +209,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }  
       return false;
     
-case DUAL_FUNC_8:  handle_shifted_df(record, 8,  KC_X, NRW_PERC, KC_1); return false;
-case DUAL_FUNC_9:  handle_shifted_df(record, 9,  KC_M, NRW_UNDS, KC_2); return false;
-case DUAL_FUNC_10: handle_shifted_df(record, 10, KC_C, NRW_HASH, KC_3); return false;
-
+    case DUAL_FUNC_8:  handle_shifted_df(record, 8,  KC_X, NRW_PERC, KC_1); return false;
+    case DUAL_FUNC_9:  handle_shifted_df(record, 9,  KC_M, NRW_UNDS, KC_2); return false;
+    case DUAL_FUNC_10: handle_shifted_df(record, 10, KC_C, NRW_HASH, KC_3); return false;
     case DUAL_FUNC_11:
       if (record->tap.count > 0) {
         if (record->event.pressed) {
