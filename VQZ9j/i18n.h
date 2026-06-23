@@ -1,6 +1,6 @@
-#define NRW_LABK KC_NUBS
-#define NRW_RABK S(KC_NUBS)
 #define NRW_SLSH S(KC_7)
+#define NRW_LBRC ALGR(KC_8)
+#define NRW_RBRC ALGR(KC_9)
 #define NRW_MINS KC_SLSH
 #define NRW_LPRN S(KC_8)
 #define NRW_RPRN S(KC_9)
@@ -11,8 +11,8 @@
 #define NRW_HASH S(KC_3)
 #define NRW_QUOT KC_NUHS
 #define NRW_EXLM S(KC_1)
-#define NRW_LBRC ALGR(KC_8)
-#define NRW_RBRC ALGR(KC_9)
+#define NRW_LABK KC_NUBS
+#define NRW_RABK S(KC_NUBS)
 #define NRW_AMPR S(KC_6)
 #define NRW_DQUO S(KC_2)
 #define NRW_LCBR ALGR(KC_7)
