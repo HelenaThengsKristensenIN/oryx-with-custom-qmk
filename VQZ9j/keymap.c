@@ -14,37 +14,37 @@ enum custom_keycodes {
 
 
 
-#define DUAL_FUNC_0 LT(4, KC_X)
-#define DUAL_FUNC_1 LT(13, KC_F9)
-#define DUAL_FUNC_2 LT(10, KC_C)
-#define DUAL_FUNC_3 LT(11, KC_F10)
-#define DUAL_FUNC_4 LT(1, KC_9)
-#define DUAL_FUNC_5 LT(13, KC_1)
-#define DUAL_FUNC_6 LT(5, KC_F3)
-#define DUAL_FUNC_7 LT(8, KC_F1)
-#define DUAL_FUNC_8 LT(11, KC_J)
-#define DUAL_FUNC_9 LT(11, KC_F6)
-#define DUAL_FUNC_10 LT(6, KC_F)
-#define DUAL_FUNC_11 LT(7, KC_G)
-#define DUAL_FUNC_12 LT(7, KC_F)
-#define DUAL_FUNC_13 LT(13, KC_F11)
-#define DUAL_FUNC_14 LT(1, KC_V)
-#define DUAL_FUNC_15 LT(7, KC_F1)
-#define DUAL_FUNC_16 LT(5, KC_B)
-#define DUAL_FUNC_17 LT(5, KC_3)
-#define DUAL_FUNC_18 LT(14, KC_I)
-#define DUAL_FUNC_19 LT(10, KC_4)
-#define DUAL_FUNC_20 LT(14, KC_1)
-#define DUAL_FUNC_21 LT(2, KC_5)
-#define DUAL_FUNC_22 LT(10, KC_F1)
+#define DUAL_FUNC_0 LT(15, KC_F6)
+#define DUAL_FUNC_1 LT(6, KC_F24)
+#define DUAL_FUNC_2 LT(10, KC_V)
+#define DUAL_FUNC_3 LT(15, KC_S)
+#define DUAL_FUNC_4 LT(1, KC_P)
+#define DUAL_FUNC_5 LT(6, KC_Q)
+#define DUAL_FUNC_6 LT(7, KC_I)
+#define DUAL_FUNC_7 LT(9, KC_F9)
+#define DUAL_FUNC_8 LT(4, KC_C)
+#define DUAL_FUNC_9 LT(6, KC_H)
+#define DUAL_FUNC_10 LT(15, KC_F23)
+#define DUAL_FUNC_11 LT(1, KC_4)
+#define DUAL_FUNC_12 LT(13, KC_F)
+#define DUAL_FUNC_13 LT(5, KC_G)
+#define DUAL_FUNC_14 LT(4, KC_N)
+#define DUAL_FUNC_15 LT(1, KC_8)
+#define DUAL_FUNC_16 LT(4, KC_F4)
+#define DUAL_FUNC_17 LT(10, KC_T)
+#define DUAL_FUNC_18 LT(10, KC_7)
+#define DUAL_FUNC_19 LT(1, KC_F6)
+#define DUAL_FUNC_20 LT(13, KC_R)
+#define DUAL_FUNC_21 LT(7, KC_2)
+#define DUAL_FUNC_22 LT(6, KC_F22)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
     ST_MACRO_0,     KC_B,           DUAL_FUNC_0,    DUAL_FUNC_1,    DUAL_FUNC_2,    KC_Z,                                           NRW_QUOT,       DUAL_FUNC_11,   DUAL_FUNC_12,   DUAL_FUNC_13,   KC_J,           KC_TRANSPARENT, 
     KC_COMMA,       DUAL_FUNC_3,    DUAL_FUNC_4,    DUAL_FUNC_5,    DUAL_FUNC_6,    DUAL_FUNC_7,                                    DUAL_FUNC_14,   DUAL_FUNC_15,   DUAL_FUNC_16,   DUAL_FUNC_17,   DUAL_FUNC_18,   KC_DOT,         
     KC_TRANSPARENT, KC_Q,           DUAL_FUNC_8,    DUAL_FUNC_9,    DUAL_FUNC_10,   KC_TAB,                                         DUAL_FUNC_19,   DUAL_FUNC_20,   DUAL_FUNC_21,   DUAL_FUNC_22,   NRW_AE,         KC_TRANSPARENT, 
-    ST_MACRO_1,     KC_TRANSPARENT, MT(MOD_LGUI, KC_MS_BTN3),KC_UP,          KC_DOWN,        MT(MOD_LALT, KC_ESCAPE),                                MT(MOD_LALT, KC_H),KC_LEFT,        KC_RIGHT,       MO(1),          KC_TRANSPARENT, KC_TRANSPARENT, 
-                                                    MT(MOD_LSFT, KC_SPACE),MT(MOD_LCTL, KC_ENTER),                                MT(MOD_LCTL, KC_DELETE),KC_BSPC
+    ST_MACRO_1,     KC_TRANSPARENT, MT(MOD_LGUI, KC_MS_BTN3),KC_UP,          KC_DOWN,        MT(MOD_LALT, KC_ESCAPE),                                MT(MOD_LALT, KC_DELETE),KC_LEFT,        KC_RIGHT,       MO(1),          KC_TRANSPARENT, KC_TRANSPARENT, 
+                                                    MT(MOD_LSFT, KC_SPACE),MT(MOD_LCTL, KC_ENTER),                                MT(MOD_LCTL, KC_H),KC_BSPC
   ),
   [1] = LAYOUT_voyager(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
