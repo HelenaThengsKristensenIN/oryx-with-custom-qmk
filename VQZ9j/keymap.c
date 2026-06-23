@@ -9,6 +9,7 @@
 enum custom_keycodes {
   RGB_SLD = ZSA_SAFE_RANGE,
   ST_MACRO_0,
+  ST_MACRO_1,
 };
 
 
@@ -51,42 +52,42 @@ static void handle_shifted_df(keyrecord_t *record, uint8_t idx,
   }
 }
 
-#define DUAL_FUNC_0 LT(1, KC_Z)
-#define DUAL_FUNC_1 LT(6, KC_P)
-#define DUAL_FUNC_2 LT(1, KC_F1)
-#define DUAL_FUNC_3 LT(8, KC_E)
-#define DUAL_FUNC_4 LT(14, KC_F23)
-#define DUAL_FUNC_5 LT(11, KC_F21)
-#define DUAL_FUNC_6 LT(3, KC_5)
-#define DUAL_FUNC_7 LT(2, KC_F10)
-#define DUAL_FUNC_8 LT(3, KC_T)
-#define DUAL_FUNC_9 LT(3, KC_N)
-#define DUAL_FUNC_10 LT(7, KC_F15)
-#define DUAL_FUNC_11 LT(14, KC_Y)
-#define DUAL_FUNC_12 LT(4, KC_F17)
-#define DUAL_FUNC_13 LT(6, KC_D)
-#define DUAL_FUNC_14 LT(3, KC_F8)
-#define DUAL_FUNC_15 LT(7, KC_O)
-#define DUAL_FUNC_16 LT(13, KC_F23)
-#define DUAL_FUNC_17 LT(15, KC_J)
-#define DUAL_FUNC_18 LT(8, KC_F19)
-#define DUAL_FUNC_19 LT(5, KC_Z)
-#define DUAL_FUNC_20 LT(1, KC_F3)
-#define DUAL_FUNC_21 LT(4, KC_K)
-#define DUAL_FUNC_22 LT(14, KC_Q)
+#define DUAL_FUNC_0 LT(4, KC_X)
+#define DUAL_FUNC_1 LT(13, KC_F9)
+#define DUAL_FUNC_2 LT(10, KC_C)
+#define DUAL_FUNC_3 LT(11, KC_F10)
+#define DUAL_FUNC_4 LT(1, KC_9)
+#define DUAL_FUNC_5 LT(13, KC_1)
+#define DUAL_FUNC_6 LT(5, KC_F3)
+#define DUAL_FUNC_7 LT(8, KC_F1)
+#define DUAL_FUNC_8 LT(11, KC_J)
+#define DUAL_FUNC_9 LT(11, KC_F6)
+#define DUAL_FUNC_10 LT(6, KC_F)
+#define DUAL_FUNC_11 LT(7, KC_G)
+#define DUAL_FUNC_12 LT(7, KC_F)
+#define DUAL_FUNC_13 LT(13, KC_F11)
+#define DUAL_FUNC_14 LT(1, KC_V)
+#define DUAL_FUNC_15 LT(7, KC_F1)
+#define DUAL_FUNC_16 LT(5, KC_B)
+#define DUAL_FUNC_17 LT(5, KC_3)
+#define DUAL_FUNC_18 LT(14, KC_I)
+#define DUAL_FUNC_19 LT(10, KC_4)
+#define DUAL_FUNC_20 LT(14, KC_1)
+#define DUAL_FUNC_21 LT(2, KC_5)
+#define DUAL_FUNC_22 LT(10, KC_F1)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
     ST_MACRO_0,     KC_B,           DUAL_FUNC_0,    DUAL_FUNC_1,    DUAL_FUNC_2,    KC_Z,                                           NRW_QUOT,       DUAL_FUNC_11,   DUAL_FUNC_12,   DUAL_FUNC_13,   KC_J,           KC_TRANSPARENT, 
     KC_COMMA,       DUAL_FUNC_3,    DUAL_FUNC_4,    DUAL_FUNC_5,    DUAL_FUNC_6,    DUAL_FUNC_7,                                    DUAL_FUNC_14,   DUAL_FUNC_15,   DUAL_FUNC_16,   DUAL_FUNC_17,   DUAL_FUNC_18,   KC_DOT,         
     KC_TRANSPARENT, KC_Q,           DUAL_FUNC_8,    DUAL_FUNC_9,    DUAL_FUNC_10,   KC_TAB,                                         DUAL_FUNC_19,   DUAL_FUNC_20,   DUAL_FUNC_21,   DUAL_FUNC_22,   NRW_AE,         KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_TRANSPARENT, MT(MOD_LGUI, KC_MS_BTN3),KC_UP,          KC_DOWN,        MT(MOD_LALT, KC_ESCAPE),                                MT(MOD_LALT, KC_DELETE),KC_LEFT,        KC_RIGHT,       MO(1),          KC_TRANSPARENT, KC_TRANSPARENT, 
-                                                    MT(MOD_LSFT, KC_SPACE),MT(MOD_LCTL, KC_ENTER),                                MT(MOD_LCTL, KC_H),KC_BSPC
+    ST_MACRO_1,     KC_TRANSPARENT, MT(MOD_LGUI, KC_MS_BTN3),KC_UP,          KC_DOWN,        MT(MOD_LALT, KC_ESCAPE),                                MT(MOD_LALT, KC_H),KC_LEFT,        KC_RIGHT,       MO(1),          KC_TRANSPARENT, KC_TRANSPARENT, 
+                                                    MT(MOD_LSFT, KC_SPACE),MT(MOD_LCTL, KC_ENTER),                                MT(MOD_LCTL, KC_DELETE),KC_BSPC
   ),
   [1] = LAYOUT_voyager(
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_7,           KC_8,           KC_9,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_F10,         KC_F11,         KC_TRANSPARENT, KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_0,           KC_4,           KC_5,           KC_6,           KC_TRANSPARENT,                                 KC_F5,          KC_F2,          KC_F7,          KC_F9,          KC_F12,         KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_1,           KC_2,           KC_3,           KC_TRANSPARENT,                                 KC_F4,          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_AUDIO_VOL_DOWN,KC_AUDIO_VOL_UP,KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_MEDIA_PREV_TRACK,KC_MEDIA_PLAY_PAUSE,KC_MEDIA_NEXT_TRACK,KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
                                                     KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT
   ),
@@ -111,7 +112,7 @@ void keyboard_post_init_user(void) {
 const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
     [0] = { {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {0,0,0}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {32,255,255}, {0,0,0}, {0,0,0}, {0,249,255}, {32,255,255}, {32,255,255}, {80,218,204}, {80,218,204}, {80,218,204}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {0,0,0}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {139,205,228}, {0,0,0}, {80,218,204}, {32,255,255}, {32,255,255}, {201,218,204}, {0,0,0}, {0,0,0}, {139,205,228}, {80,218,204} },
 
-    [1] = { {0,0,0}, {0,0,0}, {165,255,225}, {165,255,225}, {165,255,225}, {0,0,0}, {0,0,0}, {165,255,225}, {165,255,225}, {165,255,225}, {165,255,225}, {0,0,0}, {0,0,0}, {0,0,0}, {165,255,225}, {165,255,225}, {165,255,225}, {0,0,0}, {0,0,0}, {0,0,0}, {201,218,204}, {201,218,204}, {201,218,204}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {165,255,225}, {165,255,225}, {0,0,0}, {0,0,0}, {165,255,225}, {165,255,225}, {165,255,225}, {165,255,225}, {165,255,225}, {0,0,0}, {165,255,225}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
+    [1] = { {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {201,218,204}, {201,218,204}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {201,218,204}, {201,218,204}, {201,218,204}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
 
 };
 
@@ -183,11 +184,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       SEND_STRING(SS_LSFT(SS_TAP(X_7))SS_DELAY(50)  SS_LSFT(SS_TAP(X_7))SS_DELAY(50)  SS_LSFT(SS_TAP(X_7)));
     }
     break;
+    case ST_MACRO_1:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_LEFT_CTRL)SS_DELAY(100)  SS_TAP(X_LEFT_CTRL));
+    }
+    break;
 
     
-    case DUAL_FUNC_0:  handle_shifted_df(record, 0,  KC_L, NRW_LABK, KC_7); return false;
-    case DUAL_FUNC_1:  handle_shifted_df(record, 1,  KC_G, NRW_RABK, KC_8); return false;
-    case DUAL_FUNC_2:  handle_shifted_df(record, 2,  KC_W, NRW_SLSH, KC_9); return false;
+    case DUAL_FUNC_0:  handle_shifted_df(record, 0,  KC_L, NRW_SLSH, KC_7); return false;
+    case DUAL_FUNC_1:  handle_shifted_df(record, 1,  KC_G, NRW_LBRC, KC_8); return false;
+    case DUAL_FUNC_2:  handle_shifted_df(record, 2,  KC_W, NRW_RBRC, KC_9); return false;
     case DUAL_FUNC_3:  handle_shifted_df(record, 3,  KC_N, NRW_MINS, KC_0); return false;
     case DUAL_FUNC_4:  handle_shifted_df(record, 4,  KC_R, NRW_LPRN, KC_4); return false;
     case DUAL_FUNC_5:  handle_shifted_df(record, 5,  KC_T, NRW_RPRN, KC_5); return false;
@@ -225,8 +231,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }  
       }  
       return false;
-    case DUAL_FUNC_12: handle_shifted_df(record, 12,  KC_O, NRW_LBRC, KC_F10); return false;
-    case DUAL_FUNC_13: handle_shifted_df(record, 13,  KC_U, NRW_RBRC, KC_F11); return false;
+    case DUAL_FUNC_12: handle_shifted_df(record, 12,  KC_O, NRW_LABK, KC_F10); return false;
+    case DUAL_FUNC_13: handle_shifted_df(record, 13,  KC_U, NRW_RABK, KC_F11); return false;
     case DUAL_FUNC_14: 
       if (record->tap.count > 0) {
         if (record->event.pressed) {
