@@ -10,6 +10,7 @@
 #define NRW_UNDS S(KC_SLSH)
 #define NRW_HASH S(KC_3)
 #define NRW_QUOT KC_NUHS
+#define NRW_GRV S(KC_EQL)
 #define NRW_EXLM S(KC_1)
 #define NRW_LABK KC_NUBS
 #define NRW_RABK S(KC_NUBS)
