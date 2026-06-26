@@ -249,36 +249,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return false;
     case DUAL_FUNC_13: handle_shifted_df(record, 13,  KC_O, NRW_LABK, KC_F10); return false;
     case DUAL_FUNC_14: handle_shifted_df(record, 14,  KC_U, NRW_RABK, KC_F11); return false;
-    case DUAL_FUNC_13:
-      if (record->tap.count > 0) {
-        if (record->event.pressed) {
-          register_code16(KC_O);
-        } else {
-          unregister_code16(KC_O);
-        }
-      } else {
-        if (record->event.pressed) {
-          register_code16(NRW_LABK);
-        } else {
-          unregister_code16(NRW_LABK);
-        }  
-      }  
-      return false;
-    case DUAL_FUNC_14:
-      if (record->tap.count > 0) {
-        if (record->event.pressed) {
-          register_code16(KC_U);
-        } else {
-          unregister_code16(KC_U);
-        }
-      } else {
-        if (record->event.pressed) {
-          register_code16(NRW_RABK);
-        } else {
-          unregister_code16(NRW_RABK);
-        }  
-      }  
-      return false;
     case DUAL_FUNC_15:
       if (record->tap.count > 0) {
         if (record->event.pressed) {
